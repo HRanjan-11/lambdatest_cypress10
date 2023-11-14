@@ -12,7 +12,6 @@
   "dependencies": {
     "cypress": "13.2.0",
     "cypress-terminal-report": "^5.3.2",
-    "lambdatest-cypress-cli": "github:LambdaTest/lambdatest-cypress-cli#dev",
     "mocha-junit-reporter": "^2.2.1",
     "playwright-webkit": "1.27.0"
   },
