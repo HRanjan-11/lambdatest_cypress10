@@ -1,0 +1,23 @@
+name: Run - Test CI
+on:
+  push:
+    branches:
+      - 'test'
+env:
+  CYPRESS_BASEURL: "https://example.cypress.io/todo"
+
+jobs:
+  Build:
+    name: Run test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Run npm i
+      uses: mathiasvr/command-output@v1 
+      id: installdependencies
+      with:
+        run: |
+          npm i
+          npx lambdatest-cypress-cli run 
