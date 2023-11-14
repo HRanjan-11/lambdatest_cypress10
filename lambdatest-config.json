@@ -1,38 +1,35 @@
 {
-   "lambdatest_auth": {
-      "username": "<Your LambdaTest username>",
-      "access_key": "<Your LambdaTest access key>"
-   },
+   
    "browsers": [
       {
-         "browser": "Chrome",
-         "platform": "Windows 10",
+         "browser": "edge",
+         "platform": "macos big sur",
          "versions": [
-            "latest-1"
-         ]
-      },
-      {
-         "browser": "Firefox",
-         "platform": "Windows 10",
-         "versions": [
-            "latest-1"
-         ]
+            "latest"
+            ]
       }
    ],
    "run_settings": {
-      "reporter_config_file": "base_reporter_config.json",
+      "reporter_config_file":"base_reporter_config.json",
+      "downloads": "./cypress/results",
       "build_name": "Cypress 10",
-      "parallels": 1,
-      "specs": "cypress/e2e/1-getting-started/todo.cy.js",
+      "parallels": 3,
+      "specs": "./cypress/e2e/1-getting-started/todo.cy.js,./cypress/e2e/2-advanced-examples/actions.cy.js,./cypress/e2e/2-advanced-examples/aliasing.cy.js",
       "ignore_files": "",
-      "network": false,
+      "network": true,
       "headless": false,
       "npm_dependencies": {
-         "cypress": "10.0.0"
-      }
+         "cypress": "^12.17.4",
+         "mocha-junit-reporter": "latest",
+         "playwright-webkit":"1.27.0",
+         "cypress-terminal-report": "^5.3.2"
+      },
+      "sys_env_keys":"LT_ACCESS_KEY,LT_USERNAME,TestKey2,TestKey4,CYPRESS_BASEURL",
+      "detailed_command_logs" : true,
+      "env_file":"./cypress/support/.env"
    },
    "tunnel_settings": {
       "tunnel": false,
-      "tunnel_name": null
+      "tunnel_name": "testtunnel1110"
    }
 }

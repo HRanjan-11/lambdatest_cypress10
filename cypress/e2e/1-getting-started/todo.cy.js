@@ -11,13 +11,18 @@
 // please read our getting started guide:
 // https://on.cypress.io/introduction-to-cypress
 
-describe('example to-do app', () => {
+describe('Cypress failed to make a connection to Firefox', () => {
   beforeEach(() => {
     // Cypress starts out with a blank slate for each test
     // so we must tell it to visit our website with the `cy.visit()` command.
     // Since we want to visit the same URL at the start of all our tests,
     // we include it in our beforeEach function so that it runs before each test
-    cy.visit('https://example.cypress.io/todo')
+    // cy.visit('http://www.jetstar.com/au/en/home?adults=1&children=0&flexible=1&flight-type=2&infants=0&origin=MEL&tab=1',{ headers: { "Accept-Encoding": "gzip, deflate" } })
+    // cy.wait(4000)
+    // cy.visit('https://example.cypress.io/todo')
+    cy.log("debugging env var " + Cypress.env('BASEURL'))
+    // cy.wait(4000)
+    cy.visit(Cypress.env('BASEURL'))
   })
 
   it('displays two todo items by default', () => {
@@ -25,7 +30,7 @@ describe('example to-do app', () => {
     // Then, we use `should` to assert that there are two matched items,
     // which are the two default items.
     cy.get('.todo-list li').should('have.length', 2)
-
+    cy.screenshot("screen1")
     // We can go even further and check that the default todos each contain
     // the correct text. We use the `first` and `last` functions
     // to get just the first and last matched elements individually,
@@ -45,7 +50,7 @@ describe('example to-do app', () => {
     // element in accordance with best practices:
     // https://on.cypress.io/selecting-elements
     cy.get('[data-test=new-todo]').type(`${newItem}{enter}`)
-
+    cy.screenshot("screen2")
     // Now that we've typed our new item, let's check that it actually was added to the list.
     // Since it's the newest item, it should exist as the last element in the list.
     // In addition, with the two default items, we should have a total of 3 elements in the list.
@@ -68,7 +73,7 @@ describe('example to-do app', () => {
       .parent()
       .find('input[type=checkbox]')
       .check()
-
+      cy.screenshot("screen3")
     // Now that we've checked the button, we can go ahead and make sure
     // that the list element is now marked as completed.
     // Again we'll use `contains` to find the <label> element and then use the `parents` command
@@ -95,6 +100,7 @@ describe('example to-do app', () => {
       // We'll click on the "active" button in order to
       // display only incomplete items
       cy.contains('Active').click()
+      cy.screenshot("screen4")
 
       // After filtering, we can assert that there is only the one
       // incomplete item in the list.
