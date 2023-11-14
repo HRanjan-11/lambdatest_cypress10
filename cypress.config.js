@@ -1,5 +1,6 @@
 const { defineConfig } = require("cypress");
 const  installLogsPrinter = require("cypress-terminal-report/src/installLogsPrinter");
+// require('dotenv').config()
 const { execSync } = require('child_process');
 const fs = require('fs');
 // const { getElectronNodeVersion } = require('cypress')
@@ -11,11 +12,12 @@ module.exports = defineConfig({
    
   },
   "screenshotOnRunFailure": true,
+  env: {
+    ...process.env,
+  },
   e2e: {
     
     setupNodeEvents(on, config) {
-      config.env = {
-      ...process.env};
       // implement node event listeners here
       installLogsPrinter(on, {
         printLogsToConsole: "always",
