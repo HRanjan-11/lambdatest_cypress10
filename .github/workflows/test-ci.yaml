@@ -4,7 +4,7 @@ on:
     branches:
       - 'test'
 env:
-  CYPRESS_BASEURL: "https://example.cypress.io/todo"
+  BASEURL: "https://example.cypress.io/todo"
 
 jobs:
   Build:

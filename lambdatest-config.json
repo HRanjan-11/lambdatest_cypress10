@@ -24,7 +24,7 @@
          "playwright-webkit":"1.27.0",
          "cypress-terminal-report": "^5.3.2"
       },
-      "sys_env_keys":"LT_ACCESS_KEY,LT_USERNAME,TestKey2,TestKey4,CYPRESS_BASEURL",
+      "sys_env_keys":"LT_ACCESS_KEY,LT_USERNAME,TestKey2,TestKey4,BASEURL",
       "detailed_command_logs" : true,
       "env_file":"./cypress/support/.env"
    },

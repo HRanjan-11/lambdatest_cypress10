@@ -14,8 +14,8 @@ module.exports = defineConfig({
   e2e: {
     
     setupNodeEvents(on, config) {
-      // config.env = {
-      // ...process.env};
+      config.env = {
+      ...process.env};
       // implement node event listeners here
       installLogsPrinter(on, {
         printLogsToConsole: "always",
