@@ -20,5 +20,5 @@ jobs:
       with:
         run: |
           npm i
-          npm install https://github.com/LambdaTest/lambdatest-cypress-cli.git#devtesting
+          npm i lambdatest-cypress-cli 
           npx lambdatest-cypress-cli run 
